@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="giriş.css">
+    <title>Yönetici Girişi | Giriş Yap</title>
+</head>
+
+<body>
+    <section>
+        <div class="panel">
+            <button><a href="index.html"><i class='bx bx-arrow-back icons'></i>Panele Dön</a></button>
+        </div>
+    </section>
+    <div class="container">
+        <div class="forms">
+            <div class="form login">
+                <span class="title">Giriş Yap</span>
+                <form action="#">
+                    <div class="input-field">
+                        <input type="text" placeholder="E-Posta Adresiniz" required>
+                        <i class="uil uil-envelope icon"></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" class="password" placeholder="Şifreniz" required>
+                        <i class="uil uil-lock icon"></i>
+                        <i class="uil uil-eye-slash showHidePw"></i>
+                    </div>
+
+                    <div class="checkbox-text">
+                        <div class="checkbox-content">
+                            <input type="checkbox" id="logCheck">
+                            <label for="logCheck" class="text">Beni hatırla</label>
+                        </div>
+
+                        <a href="#" class="text">Parolanı mı unuttun?</a>
+                    </div>
+
+                    <div class="input-field button">
+                        <input type="button" value="Giriş Yap ">
+                    </div>
+                </form>
+
+                <div class="login-signup">
+                    <span class="text">Yönetici değilmisin?
+                        <a href="#" class="text signup-link">Şimdi kayıt ol</a>
+                    </span>
+                </div>
+            </div>
+
+
+            <div class="form signup">
+                <span class="title">Kayıt</span>
+
+                <form action="#">
+                    <div class="input-field">
+                        <input type="text" placeholder="Kullanıcı Adı" required>
+                        <i class="uil uil-user"></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" placeholder="E-Posta Adresiniz" required>
+                        <i class="uil uil-envelope icon"></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" class="password" placeholder="Şifreniz" required>
+                        <i class="uil uil-lock icon"></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" class="password" placeholder="Şifreniz(tekrar)" required>
+                        <i class="uil uil-lock icon"></i>
+                        <i class="uil uil-eye-slash showHidePw"></i>
+                    </div>
+
+                    <div class="checkbox-text">
+                        <div class="checkbox-content">
+                            <input type="checkbox" id="sigCheck">
+                            <label for="sigCheck" class="text">Beni Hatırla</label>
+                        </div>
+
+                        <a href="#" class="text">Parolanızı mı unuttunuz?</a>
+                    </div>
+
+                    <div class="input-field button">
+                        <input type="button" value="Kayıt Ol">
+                    </div>
+                </form>
+
+                <div class="login-signup">
+                    <span class="text">Zaten yönetici misin?
+                        <a href="#" class="text login-link">Şimdi giriş yap</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const container = document.querySelector(".container"),
+            pwShowHide = document.querySelectorAll(".showHidePw"),
+            pwFields = document.querySelectorAll(".password"),
+            signUp = document.querySelector(".signup-link"),
+            login = document.querySelector(".login-link");
+
+        pwShowHide.forEach(eyeIcon => {
+            eyeIcon.addEventListener("click", () => {
+                pwFields.forEach(pwField => {
+                    if (pwField.type === "password") {
+                        pwField.type = "text";
+
+                        pwShowHide.forEach(icon => {
+                            icon.classList.replace("uil-eye-slash", "uil-eye");
+                        })
+                    } else {
+                        pwField.type = "password";
+
+                        pwShowHide.forEach(icon => {
+                            icon.classList.replace("uil-eye", "uil-eye-slash");
+                        })
+                    }
+                })
+            })
+        })
+
+        signUp.addEventListener("click", () => {
+            container.classList.add("active");
+        });
+        login.addEventListener("click", () => {
+            container.classList.remove("active");
+        });
+    </script>
+
+</body>
+
+</html>
